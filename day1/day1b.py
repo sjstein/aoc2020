@@ -26,10 +26,16 @@ for line in fp:
     entries.append(int(line.strip()))
 
 while x < len(entries):
+    if esc:
+        print('Normal termination')
+        break
     y = 0
     while y < len(entries):
+        if esc:
+            break
         if entries[x] + entries[y] < SOLUTION:
-            # Possible to have third value, so iterate again
+            # If the first two entries sum to less than the SOLUTION
+            # then go ahead and try the rest to see if we converge.
             z = 0
             while z < len(entries):
                 # print(f'Solving in Z at ({x},{y},{z})')
@@ -39,14 +45,7 @@ while x < len(entries):
                     print(f'Product = {entries[x] * entries[y] * entries[z]}')
                     break
                 z += 1
-                if esc:
-                    break
-            y += 1
-        else:
-            y += 1
-    if esc:
-        print('Normal termination')
-        break
+        y += 1
     x += 1
 if not esc:
     print('No solution found')

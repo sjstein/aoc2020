@@ -44,6 +44,9 @@ y = 0
 esc = False
 
 while x < len(entries):
+    if esc:
+        print('Normal termination')
+        break
     y = 0
     while y < len(entries):
         if entries[x] + entries[y] == SOLUTION:
@@ -52,9 +55,6 @@ while x < len(entries):
             print(f'Product = {entries[x] * entries[y]}')
             break
         y += 1
-    if esc:
-        print('Normal termination')
-        break
     x += 1
 if not esc:
     print('No solution found')
