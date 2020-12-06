@@ -68,26 +68,23 @@ entries = []
 llist = []
 
 # Populate the list of possible answers using a comma-delimited text file
-with open(ansfile, 'r') as f:
-    qlist = f.read().rstrip().split(',')
+with open(ansfile, 'r') as fp:
+    qlist = fp.read().rstrip().split(',')
 
-fp = open(inputfile, 'r')
-for line in fp:
-    if line == f'\n' :
-        entries.append(llist)
-        llist = []
-    else:
-        llist.append(line.rstrip())
-entries.append(llist)
-print(f'Processed {len(entries)} groups.')
-
-# entries has a list of entries organized by groups, so:
-# len(entries) yields number of groups who responded
-# len(entries[x]) yields number of people in group x
-# len(entries[x][y]) yields number of questions answered by person y in group x
-
-print (f'The answer is: {parse_questions(entries)}')
-fp.close()
+with open(inputfile, 'r') as fp:
+    for line in fp:
+        if line == f'\n':
+            entries.append(llist)
+            llist = []
+        else:
+            llist.append(line.rstrip())
+    entries.append(llist)
+    # entries has a list of entries organized by groups, so:
+    # len(entries) yields number of groups who responded
+    # len(entries[x]) yields number of people in group x
+    # len(entries[x][y]) yields number of questions answered by person y in group x
+    print(f'Processed {len(entries)} groups.')
+print(f'The answer is: {parse_questions(entries)}')
 
 
 
