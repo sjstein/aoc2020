@@ -76,8 +76,7 @@ def findkey(ndict, key, tnum):
 
 
 with open(fname, 'r') as fp:
-    nums = fp.readline().strip().split(',')
-    nums = list(map(int, nums))
+    nums = list(map(int, fp.readline().strip().split(',')))
 print(f'{nums}')
 
 turn = 1
