@@ -64,7 +64,7 @@ def expand(map, ilist):
     """
     :param map: A list of characters of {0,1,X}
     :param ilist: Input list of permutations generated around (0,1) of X
-    :return: n/a
+    :return: n/a - ilist is appended with the int values of the iterated memory locations
     """
     # Map is a list with an arbitrary number of elements that have either a 1, 0, or X
     # For each X in the list, this function will append at iteration into the ilist parameter
