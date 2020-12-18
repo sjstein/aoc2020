@@ -163,7 +163,7 @@ entries = []
 fname = "input.txt"
 wname = "stat.txt"
 wp = open(wname, 'w')
-outerlimit = 200
+outerlimit = 50
 
 def num_neighbors_active(coord, universe):
     # coord is a list of three integers [x,y,z]
